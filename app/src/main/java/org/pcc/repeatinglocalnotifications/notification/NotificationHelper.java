@@ -62,16 +62,11 @@ public class NotificationHelper {
      * @param context
      */
     public static void scheduleRepeatingElapsedNotification(Context context) {
-        //get calendar instance to be able to select what time notification should be scheduled
-        Calendar calendar = Calendar.getInstance();
-        //Setting time of the day (8am here) when notification will be sent every day
-        calendar.set(Calendar.HOUR_OF_DAY, 2, 37);
-
         //Setting intent to class where notification will be handled
         Intent intent = new Intent(context, AlarmReceiver.class);
 
         //Setting pending intent to respond to broadcast sent by AlarmManager everyday at 8am
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_TYPE_ELAPSED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        alarmIntentElapsed = PendingIntent.getBroadcast(context, ALARM_TYPE_ELAPSED, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //getting instance of AlarmManager service
         alarmManagerElapsed = (AlarmManager)context.getSystemService(ALARM_SERVICE);
@@ -81,7 +76,7 @@ public class NotificationHelper {
         //We're setting alarm to fire notification after 15 minutes, and every 15 minutes there on
         alarmManagerElapsed.setInexactRepeating(AlarmManager.ELAPSED_REALTIME,
                 SystemClock.elapsedRealtime() + AlarmManager.INTERVAL_FIFTEEN_MINUTES,
-                AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+                AlarmManager.INTERVAL_FIFTEEN_MINUTES, alarmIntentElapsed);
     }
 
     public static void cancelAlarmRTC() {
