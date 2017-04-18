@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.pcc.repeatinglocalnotifications.MainActivity">
+
+    <LinearLayout
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="24dp"
+        android:id="@+id/layout_rtc">
+
+        <EditText
+            android:id="@+id/editTextHH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="HH"/>
+
+        <EditText
+            android:id="@+id/editTextMM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberSigned"
+            android:hint="MM"/>
+
+        <ToggleButton
+            android:id="@+id/toggleButtonRTC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickToggleButtonRTC"
+            android:textOff="Turn ON Notifications (RTC)"
+            android:textOn="TurnOff Notifications (RTC)"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_elapsed"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="150dp">
+
+    <ToggleButton
+        android:id="@+id/toggleButtonElapsed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickToggleButtonElapsed"
+        android:textOff="Turn ON Notifications (Elapsed)"
+        android:textOn="TurnOff Notifications (Elapsed)"
+         />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
