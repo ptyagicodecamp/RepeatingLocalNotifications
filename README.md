@@ -199,5 +199,6 @@ pm.setComponentEnabledSetting(receiver,
 That's it !
 
 ***References:***
-* Source Code is available [here](https://github.com/ptyagicodecamp/RepeatingLocalNotifications)
-* More details you can find [here](https://developer.android.com/training/scheduling/alarms.html)
+
+- Source Code is available [here](https://github.com/ptyagicodecamp/RepeatingLocalNotifications)
+- More details you can find [here](https://developer.android.com/training/scheduling/alarms.html)
