@@ -95,7 +95,8 @@ public static void scheduleRepeatingElapsedNotification(Context context) {
 #### AlarmReceiver (BroadcastReceiver)
 `AlarmReceiver` class extends `BroadcastReceiver`. This handles the AlarmManager's broadcast
  about sending local notifications at a given time.
- ```
+ 
+```
  public class AlarmReceiver extends BroadcastReceiver {
      @Override
      public void onReceive(Context context, Intent intent) {
@@ -128,15 +129,15 @@ public static void scheduleRepeatingElapsedNotification(Context context) {
      }
  }
 
- ```
+```
 
 ***Note:*** Don't forget to add `<receiver>` tag in `AndroidManifest.xml`
- ```
- <receiver android:name=".notification.AlarmReceiver"/>
- ```
+```
+<receiver android:name=".notification.AlarmReceiver"/>
+```
 
 #### NotificationHelper
-Convenience helper class to generate notification
+[Convenience helper class](https://github.com/ptyagicodecamp/RepeatingLocalNotifications/blob/master/app/src/main/java/org/pcc/repeatinglocalnotifications/notification/NotificationHelper.java) to generate notification
 
 #### Don't loose your notifications settings across device boots
 Alarms will be cancelled when a device re-boots, so your notification settings.
@@ -163,6 +164,7 @@ Add this permission in `AndroidManifest.xml`
 ##### Implementing Boot Receiver
 
 `AlarmBootReceiver` will look like this:
+
 ```
 public class AlarmBootReceiver extends BroadcastReceiver {
     @Override
