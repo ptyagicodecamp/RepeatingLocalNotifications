@@ -49,4 +49,10 @@ public class MainActivity extends AppCompatActivity {
             NotificationHelper.disableBootReceiver(mContext);
         }
     }
+
+    public void cancelAlarms(View view) {
+        NotificationHelper.cancelAlarmRTC();
+        NotificationHelper.cancelAlarmElapsed();
+        NotificationHelper.disableBootReceiver(mContext);
+    }
 }
