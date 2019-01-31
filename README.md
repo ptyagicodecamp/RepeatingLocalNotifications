@@ -32,7 +32,8 @@ Read more about them [here](https://developer.android.com/training/scheduling/al
 I'll be scheduling notifications using both kind of alarms.
 
 ***Scheduling RTC***
-```
+
+```java
 /**
  * This is the real time /wall clock time
  * @param context
@@ -66,7 +67,7 @@ public static void scheduleRepeatingRTCNotification(Context context, String hour
 
 ***Scheduling Elapsed***
 
-```
+```java
 /***
  * This is another way to schedule notifications using the elapsed time.
  * Its based on the relative time since device was booted up.
@@ -96,7 +97,7 @@ public static void scheduleRepeatingElapsedNotification(Context context) {
 `AlarmReceiver` class extends `BroadcastReceiver`. This handles the AlarmManager's broadcast
  about sending local notifications at a given time.
  
-```
+```java
  public class AlarmReceiver extends BroadcastReceiver {
      @Override
      public void onReceive(Context context, Intent intent) {
@@ -132,7 +133,7 @@ public static void scheduleRepeatingElapsedNotification(Context context) {
 ```
 
 ***Note:*** Don't forget to add `<receiver>` tag in `AndroidManifest.xml`
-```
+```xml
 <receiver android:name=".notification.AlarmReceiver"/>
 ```
 
@@ -146,7 +147,7 @@ you would need to reset alarm when a device boots up.
 
 ##### AndroidManifest.xml configuration
 Add this permission in `AndroidManifest.xml`
-```
+```xml
 <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 <application
 ...>
@@ -165,7 +166,7 @@ Add this permission in `AndroidManifest.xml`
 
 `AlarmBootReceiver` will look like this:
 
-```
+```java
 public class AlarmBootReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -179,7 +180,7 @@ public class AlarmBootReceiver extends BroadcastReceiver {
 
 Enable boot receiver when Alarm is set. It means if user opts-into notifications, then
 enable boot receiver as part of enabling notification code.
-```
+```java
 ComponentName receiver = new ComponentName(context, AlarmBootReceiver.class);
 PackageManager pm = context.getPackageManager();
 
@@ -189,7 +190,7 @@ pm.setComponentEnabledSetting(receiver,
 ```
 
 When user opts-out from notifications, you can cancel alarm and also disable boot receiver like this:
-```
+```java
 ComponentName receiver = new ComponentName(context, AlarmBootReceiver.class);
 PackageManager pm = context.getPackageManager();
 
